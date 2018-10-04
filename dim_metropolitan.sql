@@ -1,11 +1,11 @@
-drop table dim_county;
+drop table dim_metropolitan;
 
-create table dim_county
+create table dim_metropolitan
   ( 
-    county_sk            number                                                             not null
+    metropolitan_sk      number                                                             not null
   , state_code           varchar2(2)                                                        not null
   , county_code          varchar2(3)                                                        not null
-  , county_name          varchar2(200)                                                      not null
+  , metrplrn_name        varchar2(200)                                                      not null
   , start_date           date                                                               not null
   , end_date             date           default     to_date('31-DEC-2999', 'DD-MON-YYYY')   not null
   , is_active            varchar2(1)    default     'Y'                                     not null
