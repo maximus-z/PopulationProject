@@ -1,0 +1,1 @@
+ALTER TABLE dim_state  ADD PRIMARY KEY(state_sk);
