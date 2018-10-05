@@ -2,16 +2,12 @@ drop table unemployment_ext;
 
 create table unemployment_ext
   (  
-    cn_code                     varchar2(200)
-  , state_code                  varchar2(200)
+    state_code                  varchar2(200)
   , county_code                 varchar2(200)
-  , county_name                 varchar2(200)
-  , year                        varchar2(200)
-  , empty_column                varchar2(200)
+  , year_cd                     varchar2(200)
   , force                       varchar2(200)
   , employed                    varchar2(200)
   , unemployed                  varchar2(200)
-  , ratio                       varchar2(200)
   )
   organization external
       (type oracle_loader
@@ -19,10 +15,17 @@ create table unemployment_ext
        access parameters
        (
          records delimited by newline
-         skip 1
-         fields terminated by ','
-         optionally enclosed by '"'
+         skip 6
+         fields LDRTRIM
+          (
+          state_code (19:22) CHAR(2),
+          county_code (26:29) CHAR(3),
+          year_cd (82:86) char(4),
+          force (91:10) char(9),
+          employed(104:113) char(9),
+          unemployed(117:124) char(7)
+         )
         )
-       location ('Unemployment.csv')
+       location ('laucnty10.txt','laucnty11.txt', 'laucnty12.txt','laucnty13.txt','laucnty14.txt','laucnty15.txt','laucnty16.txt','laucnty17.txt')
       )
 ;
