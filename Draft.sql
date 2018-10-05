@@ -18,4 +18,6 @@ begin
 end;
 /
 
-select * from fact_population;
+select * from 
+      
+      
