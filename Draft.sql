@@ -18,6 +18,6 @@ begin
 end;
 /
 
-select * from 
-      
-      
+select * from fact_population;
+select * from TOTAL_POPLN_BY_MTRPLTN_VIEW;
+select * from TOTAL_UNEMPL_BY_COUNTY_VIEW;
