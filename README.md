@@ -18,3 +18,4 @@ I used Oracle DB because of my primary skillset.
 Star schema dimensional approach was implemented where's one fact table in centre and set of dimensions are around.
 The flow is following:
 1. To load initial raw data into DB via [external tables](/External%20tables).
+2. Build three dimesnions - [county dimension](/Tables/dim_county.sql), [state dimension](/Tables/dim_state.sql) and [metropolitan dimension](Tables/dim_metropolitan.sql) and one [fact table]()
