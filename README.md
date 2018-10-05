@@ -17,4 +17,4 @@ The solution could be implemented in many different ways - using Python and Pand
 I used Oracle DB because of my primary skillset.
 Star schema dimensional approach was implemented where's one fact table in centre and set of dimensions are around.
 The flow is following:
-1. To load initial raw data into DB via external tables (/county_ext.sql).
+1. To load initial raw data into DB via [external tables](/county_ext.sql).
