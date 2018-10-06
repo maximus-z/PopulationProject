@@ -83,7 +83,7 @@ Should be converted into [csv](/Data%20files/Metropolitan.csv).
 | 2010 | Asheville-Brevard, NC | 458423 |
 | 2012 | Asheville-Brevard, NC | 463997 |
 
-#### _Population and unemployment rates of the US at the county level
+#### _Population and unemployment rates of the US at the county level_
 
 | YEAR | COUNTY_NAME | TOTAL_QTY | UNEMPLOYED_RATIO |
 | ---- | ----------- | --------- | ---------------- |
