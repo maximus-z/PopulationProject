@@ -25,9 +25,11 @@ procedure p_set_dim_metropolitan is
              fips_state_code        <> 72     -- Exclide Puerto Rico
       ;
        
-       commit;
-       -- Exception --
-         -- Error Logging --
+      commit;
+      exception 
+         when others then
+            -- Error Logging --
+         raise_application_error(-20101, 'Dimension load is failed');   
    end p_set_dim_metropolitan;
 ---------------------------------------
 end pkg_dim_metropolitan;

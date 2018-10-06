@@ -94,8 +94,10 @@ procedure p_set_fact_population is
               dst.is_active         = 'Y';
        
        commit;
-       -- Exception --
-         -- Error Logging --
+      exception 
+         when others then
+            -- Error Logging --
+         raise_application_error(-20101, 'Dimension load is failed');
    end p_set_fact_population;
 ---------------------------------------
 end pkg_fact_population;
