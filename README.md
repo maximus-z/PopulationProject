@@ -55,6 +55,23 @@ Should be converted into [csv](/Data%20files/Metropolitan.csv).
 9. Check [population of any major metropolitan area in the US over time view](/Views/total_population_by_metropolitan_view.sql) and [population and unemployment rates of the US
 at the county level view](/Views/total_unempoyed_by_county_view.sql).
 
+## Examples
+Final fact table
+
+| YEAR | STATE_SK | COUNTY_SK | TOTAL_QTY | FORCE_QTY | EMPLOYED_QTY | UNEMPLOYED_QTY | CREATED_ON | CREATED_BY |
+| ---- | -------- | --------- | --------- | --------- | ------------ | -------------- | ---------- | ---------- |
+| 2013 | 31 | 287 | 52923 | 23687 | 21822 | 1865 | 05-OCT-18 | Maximus |
+| 2014 | 31 | 287 | 52541 | 23454 | 21752 | 1702 | 05-OCT-18 | Maximus |
+| 2015 | 31 | 287 | 52207 | 23461 | 21900 | 1561 | 05-OCT-18 | Maximus |
+| 2016 | 31 | 287 | 52049 | 23580 | 22089 | 1491 | 05-OCT-18 | Maximus |
+| 2017 | 31 | 287 | 51909 | 23066 | 21966 | 1100 | 05-OCT-18 | Maximus |
+| 2010 | 31 | 288 | 658048 |318520 |285627 | 32893 | 05-OCT-18 | Maximus |
+| 2011 | 31 | 288 | 657789 |319652 | 289916 | 29736 | 05-OCT-18 | Maximus |
+| 2012 | 31 | 288 | 657668 | 316511 | 293020 | 23491 | 05-OCT-18 | Maximus |
+
+
+
+
 ## Outstanding items.
 1. Add audit for dataloading.
 2. Configure some BI tool like Tableau to have a nice dashbord and reports.
