@@ -10,7 +10,7 @@ at the county level. Annual estimates are sufficient for this customer.
 ## Solution explanation
 In original requarements we can see that two difeerent reports work on two different granularity levels.
 County area is a smaller one and a Metropolitan area is a greater one.
-The idea is to keep data on the smallest level and it's requered aggreagate it.
+The idea is to keep data on the smallest level and if it's requered aggreagate it.
 
 ## Technical details of implimentation
 The solution could be implemented in many different ways - using Python and Panda library, PostgreSQL and AWS or GCP.
@@ -19,7 +19,7 @@ Star schema dimensional approach was implemented where's one fact table in centr
 The flow is following:
 1. To load initial raw data into DB via [external tables](/External%20tables).
 - As a prerequiste for using external tables [Oracle directory](/Directories/sourceload_dir.sql) should be created.
-2. Build three dimensions - [county dimension](/Tables/dim_county.sql), [state dimension](/Tables/dim_state.sql) and [metropolitan dimension](Tables/dim_metropolitan.sql) and one [fact table](/Tables/fact_population.sql).
+2. Build three [SCDII type](https://en.wikipedia.org/wiki/Slowly_changing_dimension#Type_2:_add_new_row) dimensions - [county dimension](/Tables/dim_county.sql), [state dimension](/Tables/dim_state.sql) and [metropolitan dimension](Tables/dim_metropolitan.sql) and one [fact table](/Tables/fact_population.sql).
 3. Create [packages](/Packages) to maintanance data load into dimesnions and fact tables.
 4. Two reports as views - [population of any major metropolitan area in the US over time](/Views/total_population_by_metropolitan_view.sql) and [population and unemployment rates of the US
 at the county level](/Views/total_unempoyed_by_county_view.sql).
@@ -52,11 +52,10 @@ Should be converted into [csv](/Data%20files/Metropolitan.csv).
 6. Create [sequences](/Sequences/sequences.sql) and [index](/Indexes).
 7. Create [packages](/Packages) and [views](/Views).
 8. Run (final script]() to populate tables.
-9. Check [population of any major metropolitan area in the US over time view](/Views/total_population_by_metropolitan_view.sql) and [population and unemployment rates of the US
-at the county level view](/Views/total_unempoyed_by_county_view.sql).
+9. Check [population of any major metropolitan area in the US over time view](/Views/total_population_by_metropolitan_view.sql) and [population and unemployment rates of the US at the county level view](/Views/total_unempoyed_by_county_view.sql).
 
 ## Examples
-Final fact table
+#### _Final fact table_
 
 | YEAR | STATE_SK | COUNTY_SK | TOTAL_QTY | FORCE_QTY | EMPLOYED_QTY | UNEMPLOYED_QTY | CREATED_ON | CREATED_BY |
 | ---- | -------- | --------- | --------- | --------- | ------------ | -------------- | ---------- | ---------- |
@@ -69,8 +68,36 @@ Final fact table
 | 2011 | 31 | 288 | 657789 |319652 | 289916 | 29736 | 05-OCT-18 | Maximus |
 | 2012 | 31 | 288 | 657668 | 316511 | 293020 | 23491 | 05-OCT-18 | Maximus |
 
+#### _Population of any major metropolitan area in the US over time view_
 
+| YEAR | METRPLRN_NAME | TOTAL_QTY|
+| ---- | ------------- | -------- |
+| 2010 | Albany-Schenectady, NY | 1168972 |
+| 2011 | Albany-Schenectady, NY | 1169575 |
+| 2012 | Albany-Schenectady, NY | 1171161 |
+| 2011 | Albuquerque-Santa Fe-Las Vegas, NM | 1157494 |
+| 2014 | Albuquerque-Santa Fe-Las Vegas, NM | 1161927 |
+| 2010 | Amarillo-Borger, TX | 274884 |
+| 2013 | Amarillo-Borger, TX | 280741 |
+| 2014 | Appleton-Oshkosh-Neenah, WI | 400890 |
+| 2010 | Asheville-Brevard, NC | 458423 |
+| 2012 | Asheville-Brevard, NC | 463997 |
 
+#### _Population and unemployment rates of the US at the county level
+
+| YEAR | COUNTY_NAME | TOTAL_QTY | UNEMPLOYED_RATIO |
+| ---- | ----------- | --------- | ---------------- |
+| 2010 | Abbeville County | 25328 | 13.6 |
+| 2011 | Abbeville County | 25082 | 12.46 |
+| 2012 | Abbeville County | 25019 | 10.62 |
+| 2010 | Acadia Parish | 	61859 | 7.26 |
+| 2011 | Acadia Parish | 	61826 | 6.68 |
+| 2012 | Acadia Parish | 61984 | 5.98 |
+| 2010 | Accomack County | 33147 | 7.89 |
+| 2011 | Accomack County | 33222 | 8.4 |
+| 2012 | Accomack County | 33264 | 7.88 |
+| 2013 | Accomack County | 32963 | 7.22 |
+| 2014 | Accomack County |32965 | 6.7 |
 
 ## Outstanding items.
 1. Add audit for dataloading.
