@@ -12,6 +12,10 @@ In original requirements, we can see that two different reports work on two diff
 County area is a smaller one and a Metropolitan area is a greater one.
 The idea is to keep data on the smallest level and if it's required to aggregate it.
 
+### ER Diagram
+
+<img src="https://github.com/maximus-z/PopulationProject/blob/master/ED_Diagram.svg">
+
 ## Technical details of implementation
 The solution could be implemented in many different ways - using Python and Panda library, PostgreSQL and AWS or GCP.
 I used Oracle DB because of my primary skillset.
