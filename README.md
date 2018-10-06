@@ -51,8 +51,9 @@ Should be converted into [csv](/Data%20files/Metropolitan.csv).
 5. Create [dimensions, fact table and their constraints](/Tables).
 6. Create [sequences](/Sequences/sequences.sql) and [index](/Indexes).
 7. Create [packages](/Packages) and [views](/Views).
-8. Run (final script]() to populate tables.
+8. Run [final script](/run.sql) to populate all tables.
 9. Check [population of any major metropolitan area in the US over time view](/Views/total_population_by_metropolitan_view.sql) and [population and unemployment rates of the US at the county level view](/Views/total_unempoyed_by_county_view.sql).
+10. Enjoy! :-)
 
 ## Examples
 #### _Final fact table_
